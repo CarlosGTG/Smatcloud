@@ -31,9 +31,9 @@ class SmartCloudApp extends StatelessWidget {
       home: StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
-          // Si el usuario ya está logueado, redirige al dashboard
+          
           if (snapshot.hasData) {
-            return const DashboardScreen(); // Reemplaza con tu pantalla principal
+            return const DashboardScreen(); 
           }
           return const LoginScreen();
         },
@@ -79,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
-      // Navegación manejada por el StreamBuilder en SmartCloudApp
+  
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(_parseAuthError(e.code))),
@@ -112,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          // Fondo con efecto de degradado profesional
+          
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -134,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Logo (reemplaza con tu asset)
+                   
                     Icon(
                       Icons.inventory_rounded,
                       size: 100,
@@ -151,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     const SizedBox(height: 40),
-                    // Campo de email
+                  
                     TextFormField(
                       controller: _emailController,
                       decoration: InputDecoration(
